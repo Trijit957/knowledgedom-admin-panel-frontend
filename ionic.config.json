@@ -1,0 +1,7 @@
+{
+  "name": "knowledgedom-admin-panel-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
