@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Students</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="5" offset="7">
+        <ion-searchbar mode="ios" animated="true" placeholder="Search by Name"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ngx-datatable
+          [rows]="students"
+          [ngClass]="'bootstrap'"
+          [rowHeight]="'auto'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [columnMode]="'force'"
+          [limit]="10"
+          [scrollbarH]="true"
+        >
+          <ngx-datatable-column name="Name"></ngx-datatable-column>
+          <ngx-datatable-column name="Gender"></ngx-datatable-column>
+          <ngx-datatable-column name="Physics"></ngx-datatable-column>
+          <ngx-datatable-column name="Maths"></ngx-datatable-column>
+          <ngx-datatable-column name="English"></ngx-datatable-column>
+        </ngx-datatable>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -107,6 +107,10 @@ ion-menu.ios ion-note {
   margin-bottom: 8px;
 }
 
+ion-menu {
+  border: none !important;
+}
+
 ion-note {
   display: inline-block;
   font-size: 16px;
