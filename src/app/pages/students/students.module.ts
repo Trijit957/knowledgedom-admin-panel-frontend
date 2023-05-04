@@ -8,6 +8,7 @@ import { StudentsPageRoutingModule } from './students-routing.module';
 
 import { StudentsPage } from './students.page';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { AddStudentModalComponent } from 'src/app/components/add-student-modal/add-student-modal.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     StudentsPageRoutingModule,
     NgxDatatableModule
   ],
-  declarations: [StudentsPage]
+  declarations: [StudentsPage, AddStudentModalComponent]
 })
 export class StudentsPageModule {}

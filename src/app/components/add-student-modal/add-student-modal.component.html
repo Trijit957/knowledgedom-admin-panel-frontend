@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'Add Student' }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="addType === AddStudentTypeEnum.MANUAL_ENTRY" class="ion-margin-top ion-padding-top">
+    <ion-row>
+      <ion-col size="8" offset="2">
+        <ion-input label="Name" label-placement="floating" fill="outline"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="8" offset="2">
+        <ion-input label="Gender" label-placement="floating" fill="outline"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="8" offset="2">
+        <ion-input label="Class" label-placement="floating" fill="outline"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="8" offset="2">
+        <ion-input label="School" label-placement="floating" fill="outline"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="8" offset="2">
+        <ion-item class="board-container">
+          <ion-select aria-label="Fruit" interface="alert" placeholder="Select Board">
+            <ion-select-option value="west-bengal">West Bengal</ion-select-option>
+            <ion-select-option value="cbse">CBSE</ion-select-option>
+            <ion-select-option value="icse">ICSE</ion-select-option>
+            <ion-select-option value="isc">ISC</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="8" offset="2" class="ion-text-end">
+          <ion-button shape="round" (click)="onAddStudent()">
+            <ion-text>{{ 'Add' }}</ion-text>
+          </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="csv-upload-container-grid" *ngIf="addType === AddStudentTypeEnum.CSV_UPLOAD">
+      <ion-row class="csv-upload-container-row">
+        <ion-col size="12" class="ion-text-center ion-align-self-center">
+          <ion-icon class="upload-image" src="assets/icon/upload.svg"></ion-icon>
+        </ion-col>
+
+        <ion-col size="12" class="ion-text-center">
+          <ion-button shape="round" fill="outline">Upload</ion-button>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>
