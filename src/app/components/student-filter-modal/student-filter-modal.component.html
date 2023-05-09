@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'Filter Students' }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-accordion-group>
+    <ion-accordion *ngFor="let filterOption of filterOptions" [value]="filterOption.name">
+      <ion-item slot="header" color="light">
+        <ion-label>{{ filterOption.name }}</ion-label>
+      </ion-item>
+      <div 
+        *ngFor="let option of filterOption.options" 
+        class="ion-activatable ion-padding ripple-parent" 
+        slot="content"
+        (click)="doSelectOption(option)"
+      >
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-label class="ion-padding-start">{{ option.name }}</ion-label>
+          <ion-icon *ngIf="option.isChecked" slot="end" name="checkmark" color="success" class="checkmark"></ion-icon>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button class="ion-margin" expand="block" (click)="doApplyFilters()">Apply</ion-button>
+</ion-footer>

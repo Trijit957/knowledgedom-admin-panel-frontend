@@ -121,3 +121,14 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+.list-header-container {
+  display: flex;
+  align-items: center;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

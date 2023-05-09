@@ -64,8 +64,17 @@
           <ion-icon class="upload-image" src="assets/icon/upload.svg"></ion-icon>
         </ion-col>
 
+        <ion-col *ngIf="!isFileSelected" size="12" class="ion-text-center">
+          <input #csvUpload type="file" hidden (change)="onFileChange($event)" />
+          <ion-button shape="round" fill="outline" (click)="doSelectFile()">Choose .csv file containing student information</ion-button>
+        </ion-col>
+
+        <ion-col *ngIf="isFileSelected" size="12" class="ion-text-center">
+          <ion-text>{{ csvFile.name }}</ion-text>
+        </ion-col>
+
         <ion-col size="12" class="ion-text-center">
-          <ion-button shape="round" fill="outline">Upload</ion-button>
+          <ion-button shape="round" (click)="doUploadCSV()">Upload</ion-button>
         </ion-col>
       </ion-row>
   </ion-grid>

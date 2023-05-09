@@ -35,3 +35,21 @@
 ion-button {
     text-transform: none;
 }
+
+ion-toast.success {
+    --background: var(--ion-color-success);
+    --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+    --color: #ffffff;
+}
+
+ion-toast.danger {
+    --background: var(--ion-color-danger);
+    --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+    --color: #ffffff;
+}
+
+ion-toast.warning {
+    --background: var(--ion-color-warning);
+    --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+    --color: #ffffff;
+}

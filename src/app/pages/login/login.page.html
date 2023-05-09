@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-input 
+            label="Enter Email" 
+            label-placement="floating" 
+            fill="outline"
+            formControlName="email"
+          ></ion-input>
+          <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+            <ion-label>{{ 'Please provide a valid email address!' }}</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-input 
+            label="Enter Password" 
+            label-placement="floating" 
+            fill="outline"
+            formControlName="password"
+          ></ion-input>
+          <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+            <ion-label>{{ 'Please enter password!' }}</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit">Login</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+  <ion-button (click)="onLogout()">Logout</ion-button>
+</ion-content>
