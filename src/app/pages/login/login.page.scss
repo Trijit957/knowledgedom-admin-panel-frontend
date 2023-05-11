@@ -1,0 +1,49 @@
+$heightForSmallScreen: 50vh;
+$widthForSmallScreen: 90vw;
+$heightForMediumScreen: 60vh;
+$widthForMediumScreen: 60vw;
+$heightForBigScreen: 60vh;
+$widthForBigScreen: 40vw;
+$loginFormBgColor: #ffffff;
+
+@mixin loginFormDimensionMixin($height, $width) {
+    height: #{$height};
+    width: #{$width};
+    background: #{$loginFormBgColor};
+    box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+.login-form {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.login-grid-large-screen {
+    @include loginFormDimensionMixin($heightForBigScreen, $widthForBigScreen);
+}
+
+.login-grid-medium-screen {
+    @include loginFormDimensionMixin($heightForMediumScreen, $widthForMediumScreen);
+}
+
+.login-grid-small-screen {
+    @include loginFormDimensionMixin($heightForSmallScreen, $widthForSmallScreen);
+}
+
+.login-background {
+    --background: linear-gradient(#33b69a, #b3e3c7);
+}
+
+.passowrd-field-container {
+    position: relative;
+}
+
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    z-index: 2;
+}

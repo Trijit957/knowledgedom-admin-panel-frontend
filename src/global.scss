@@ -31,6 +31,14 @@
 @import "~node_modules/@swimlane/ngx-datatable/themes/material.css";
 @import "~node_modules/@swimlane/ngx-datatable/assets/icons.css";
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@import "./theme/size/font-size.scss";
+@import "./theme/custom-variables.scss";
+
+ion-text, ion-label, ion-title {
+    font-family: 'Poppins', sans-serif;
+}
 
 ion-button {
     text-transform: none;
@@ -53,3 +61,20 @@ ion-toast.warning {
     --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
     --color: #ffffff;
 }
+
+.kd-button {
+  --background: var(--kd-color);
+  --padding-start: 35px;
+  --padding-end: 35px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+}
+
+.hover-pointer {
+    cursor: pointer;
+}
+
+ion-toast {
+    text-align: center;
+}
+

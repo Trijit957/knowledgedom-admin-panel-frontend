@@ -1,43 +1,61 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
-    <ion-grid>
-      <ion-row>
+<ion-content [fullscreen]="true" class="login-background">
+  <form 
+    class="login-form"
+    [formGroup]="loginForm" 
+    (ngSubmit)="onLogin(loginForm)"
+    autocomplete="off"
+  >
+  <ion-grid
+    [class.login-grid-large-screen]="sizeMode >= 3" 
+    [class.login-grid-medium-screen]="sizeMode > 1 && sizeMode < 3" 
+    [class.login-grid-small-screen]="sizeMode === 1" 
+    class="ion-no-padding"
+  >
+      <ion-progress-bar *ngIf="isLoading" type="indeterminate"></ion-progress-bar>
+      <ion-row class="ion-padding ion-margin-start ion-margin-end">
+        <ion-col class="ion-text-center">
+          <ion-text class="xxx-large-font">{{ 'Login' }}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-padding ion-margin-start ion-margin-end">
         <ion-col>
           <ion-input 
             label="Enter Email" 
             label-placement="floating" 
             fill="outline"
             formControlName="email"
+            autocomplete="off"
           ></ion-input>
           <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
-            <ion-label>{{ 'Please provide a valid email address!' }}</ion-label>
+            <ion-label class="small-font" color="danger">{{ 'Please provide a valid email address!' }}</ion-label>
           </div>
         </ion-col>
       </ion-row>
 
-      <ion-row>
+      <ion-row class="ion-padding ion-margin-start ion-margin-end">
         <ion-col>
-          <ion-input 
-            label="Enter Password" 
-            label-placement="floating" 
-            fill="outline"
-            formControlName="password"
-          ></ion-input>
+          <div class="passowrd-field-container">
+            <ion-input 
+              label="Enter Password" 
+              label-placement="floating" 
+              [type]="fieldType"
+              fill="outline"
+              formControlName="password"
+              autocomplete="off"
+            ></ion-input>
+            <ion-icon [name]="passwordHideShowIcon" class="x-large-font hover-pointer eye-icon" (click)="hideShowPassword()"></ion-icon>
+          </div>
           <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
-            <ion-label>{{ 'Please enter password!' }}</ion-label>
+            <ion-label class="small-font" color="danger">{{ 'Please enter password!' }}</ion-label>
           </div>
         </ion-col>
       </ion-row>
 
-      <ion-row>
-        <ion-col>
-          <ion-button type="submit">Login</ion-button>
+      <ion-row class="ion-padding ion-margin-start ion-margin-end">
+        <ion-col class="ion-text-center">
+          <ion-button class="kd-button" type="submit">
+            <ion-text>Login</ion-text>
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
